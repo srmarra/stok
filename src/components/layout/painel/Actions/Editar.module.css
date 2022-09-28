@@ -1,0 +1,16 @@
+.Editar{
+    width: 44px;
+    height: 44px;
+    background-color: #F0EDE2;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.Editar span{
+    width: 50%;
+    height: 50%;
+    border-radius: 100px;
+    background-color: #E8D745;
+}

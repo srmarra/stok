@@ -1,0 +1,38 @@
+.BaseReset{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.BaseReset nav{
+    height: 100%;
+}
+
+
+.BaseReset nav:first-of-type{
+    width: 45%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.BaseReset nav:first-of-type img{
+    min-width: 80%;
+}
+
+.BaseReset nav:last-of-type{
+    width: 55%;
+
+}
+
+@media(max-width: 757px){
+    .BaseReset nav:first-of-type{
+        display: none;   
+    }
+
+.BaseReset nav:last-of-type{
+    width: 100%;
+}
+
+
+}

@@ -1,0 +1,17 @@
+.Deletar{
+    width: 44px;
+    height: 44px;
+    background-color: #F0E2E2;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.Deletar span{
+    background-color: #DB0202;
+    width: 80%;
+    height: 15%;
+    border-radius: 0;
+}

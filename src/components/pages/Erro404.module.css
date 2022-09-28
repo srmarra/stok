@@ -1,0 +1,18 @@
+.Sec404{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.Sec404 h1{
+font-size: 60px;
+}
+.Sec404 h1{
+}
+
+.Sec404 img{
+    max-width: clamp(100px,95%,500px);
+    display: block;
+}

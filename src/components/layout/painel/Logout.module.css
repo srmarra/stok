@@ -1,0 +1,11 @@
+.BtnLogout{
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin: 10px;
+    transition: all 0.5s;
+    cursor: pointer;
+}
+.BtnLogout:hover{
+    transform: scale(1.03);
+}

@@ -1,0 +1,19 @@
+.InputForm{
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid rgb(39, 39, 39);
+    width: clamp(100px, 80%, 300px);
+    outline: none;
+    font-size: 20px;
+    padding: 0 0 3px 5px; 
+
+    display: block;
+    margin: 0 auto 0 auto;
+    margin-bottom: 40px;
+    transition: all .3s;
+}
+
+.InputForm::placeholder{
+    color: var(--p, rgb(123, 123, 123));
+    transition: all .3s;
+}
