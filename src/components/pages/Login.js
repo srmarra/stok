@@ -57,7 +57,7 @@ function Login(){
                 <div>
                     <section>
                         <h1>STOK</h1>
-                        <p>GERENCIAMENTO DE ESTOQUEE</p>
+                        <p>GERENCIAMENTO DE ESTOQUEEe</p>
                     </section>
                    {/* Area Form */}
                         <section>
