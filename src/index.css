@@ -1,7 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap'); 
 /* font-family: 'Inter', sans-serif; */
 body {
-  background-color: #3F416C;
+  background: rgb(63,65,108);
+  background: linear-gradient(90deg, rgba(63,65,108,1) -43%, rgba(27,28,46,1) 0%, rgba(63,65,108,1) 100%);
 }
 
 

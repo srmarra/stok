@@ -30,11 +30,22 @@ function Login(){
                 senha.style.borderColor = "red";
                 senha.style.setProperty("--p", "red");
                 setErroForm("Senha vazia");
+                setTimeout(function(){
+                    setErroForm("");
+                    senha.style.borderColor = "rgb(39, 39, 39)";
+                    senha.style.setProperty("--p", "rgb(123, 123, 123)");
+                }, 4000)
             }
         }else{
             email.style.borderColor = "red";
             email.style.setProperty("--p", "red");
             setErroForm("Email vazio");
+            setTimeout(function(){
+                setErroForm("");
+                email.style.borderColor = "rgb(39, 39, 39)";
+                email.style.setProperty("--p", "rgb(123, 123, 123)");
+            }, 4000)
+
         }
     }
 
@@ -57,7 +68,7 @@ function Login(){
                 <div>
                     <section>
                         <h1>STOK</h1>
-                        <p>GERENCIAMENTO DE ESTOQUEd</p>
+                        <p>GERENCIAMENTO DE ESTOQUE</p>
                     </section>
                    {/* Area Form */}
                         <section>

@@ -9,7 +9,26 @@ function FormRegistrar(){
     const [Erro, setErro] = useState("");
     function Registrar(e){
         e.preventDefault()
-        setErro("Funcionou")
+        let nome = document.getElementById("nome");
+        let email = document.getElementById("email");
+        let senha = document.getElementById("senha");
+        let senha2 = document.getElementById("senha2");
+        let obj = [nome,email,senha,senha2];
+        
+        if(nome.value !="" && email.value !="" && senha.value !="" && senha2.value !="" ){
+            alert('chegou');
+        }else{
+            obj.forEach(e => {
+                if(e.value ==""){
+                    e.style.borderColor = "red";
+                    e.style.setProperty("--p", "red");
+                    setTimeout(function(){
+                        e.style.borderColor = "rgb(39, 39, 39)";
+                        e.style.setProperty("--p", "rgb(123, 123, 123)");
+                    }, 4000)
+                }
+            });
+        }
     }
 
     return(
