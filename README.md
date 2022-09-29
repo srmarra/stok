@@ -6,9 +6,13 @@
 
 ![TELA LOGIN](https://i.ibb.co/BNm35p9/stok-login.png) 
 #
+## Esse é um sistema simples que tem com funcionalidade gerenciar um estoque de uma empresa.
+## O foco dele não é ser exeplar quanto a gerenciamento mas sim explorar as vantagens de usa *API*
 
 # LINKS UTEIS
 
 - UX/UI [FIGMA](https://www.figma.com/file/9ehp9Bys8QzGyH7GEDM5GT/STOK?node-id=0%3A1)
-- API PHP [GITHUB](https://www.figma.com/file/9ehp9Bys8QzGyH7GEDM5GT/STOK?node-id=0%3A1)
+- API PHP [GITHUB](https://github.com/srmarra/stok-api)
 - MODELAGEM BANCO DE DADOS [FIGMA](https://www.figma.com/file/ltQUIdU3vG8SVFmeVtHs4T/STOK-Banco-de-dados)
+- LINK FRONT HOSPEDADO [HEROKU](https://stokmarra.herokuapp.com/)
+- LINK API HOSPEDADA [HEROKU](https://stok-api-srmarra.herokuapp.com/)
