@@ -1,14 +1,16 @@
 # STOK sistema de gerenciamento de estoque
 
-### Esse sistema está sendo desenvolvido em *REACT* na parte do *FRONT* e uma api em *PHP* na parte do back
-### Estou hospedando eles no servidor gratuito *HEROKU* 
-### Os dois estão em servidores separados e se comunicando atravez de API REST
+Esse sistema está sendo desenvolvido em ***REACT*** na parte do ***FRONT*** e uma api em ***PHP*** na parte do back.
+Estou hospedando eles no servidor gratuito ***HEROKU***.
+Os dois estão em servidores separados e se comunicando atravez de API REST
 
 ![TELA LOGIN](https://i.ibb.co/BNm35p9/stok-login.png) 
 #
-## Esse é um sistema simples que tem com funcionalidade gerenciar um estoque de uma empresa.
-## O foco dele não é ser exeplar quanto a gerenciamento mas sim explorar as vantagens de usa *API*
+Esse é um sistema simples que tem como funcionalidade ***gerenciar*** o estoque de uma empresa.
+O foco dele não é ser ***exemplar*** quanto ao gerenciamento mas sim explorar as vantagens de usar  ***API REST***.
+A arquitetura utilizada nesse projeto é ***microservices***
 
+![TELA PAINEL](https://i.ibb.co/mDyxXKL/painel.png)
 # LINKS UTEIS
 
 - UX/UI [FIGMA](https://www.figma.com/file/9ehp9Bys8QzGyH7GEDM5GT/STOK?node-id=0%3A1)
