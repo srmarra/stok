@@ -13,22 +13,53 @@ function FormRegistrar(){
         let email = document.getElementById("email");
         let senha = document.getElementById("senha");
         let senha2 = document.getElementById("senha2");
-        let obj = [nome,email,senha,senha2];
+        let arrayInputs = [senha,senha2,email,nome];
         
         if(nome.value !="" && email.value !="" && senha.value !="" && senha2.value !="" ){
-            alert('chegou');
-        }else{
-            obj.forEach(e => {
-                if(e.value ==""){
-                    e.style.borderColor = "red";
-                    e.style.setProperty("--p", "red");
-                    setTimeout(function(){
-                        e.style.borderColor = "rgb(39, 39, 39)";
-                        e.style.setProperty("--p", "rgb(123, 123, 123)");
-                    }, 4000)
+            if(senha.value == senha2.value){
+                if(senha.value.length >= 8){
+                    alert("Chegou")
+                }else{
+                    erroSenha("SENHA TEM QUE TER NO MINIO 8 CARACTERES",senha,senha2)
                 }
-            });
+            }else{
+                erroSenha("AS SENHAS SÃO DIFERENTES",senha,senha2);
+            }
+        }else{
+            validacaoNULL(arrayInputs)
         }
+    }
+
+    function validacaoNULL(obj){
+        obj.forEach(e => {
+            if(e.value ==""){
+                setErro("INSIRA O CAMPO "+e.placeholder)
+                e.style.borderColor = "red";
+                e.style.setProperty("--p", "red");
+                setTimeout(function(){
+                    setErro("");
+                    e.style.borderColor = "rgb(39, 39, 39)";
+                    e.style.setProperty("--p", "rgb(123, 123, 123)");
+                }, 4000)
+            }
+        });
+    }
+
+
+    function erroSenha(erro,senha,senha2){
+        setErro(erro);
+                senha.style.borderColor = "red";
+                senha.style.setProperty("--p", "red");
+                senha2.style.borderColor = "red";
+                senha2.style.setProperty("--p", "red");
+                setTimeout(function(){
+                    setErro("")
+                    senha.style.borderColor = "rgb(39, 39, 39)";
+                    senha.style.setProperty("--p", "rgb(123, 123, 123)");
+
+                    senha2.style.borderColor = "rgb(39, 39, 39)";
+                    senha2.style.setProperty("--p", "rgb(123, 123, 123)");
+                }, 4000)
     }
 
     return(
