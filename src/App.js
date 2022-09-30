@@ -6,15 +6,15 @@ import Painel from './components/pages/Painel';
 import ResetPass from './components/pages/ResetPass';
 import {useState} from 'react'
 function App() {
-
+  const API_URL ="http://localhost/stok-api/";
   return (
     <Router>
       <Routes>
-        <Route path="*" element={<Erro404/>} />
-        <Route exact path="/" element={<Login/>} ></Route>
-        <Route exact path="/painel" element={<Painel/>}></Route>
-        <Route path="/newaccount" element={<NewAccount/>}> </Route> 
-        <Route path="/resetpass" element ={<ResetPass/>}></Route>
+        <Route path="*" element={<Erro404  API={API_URL}/>} />
+        <Route exact path="/" element={<Login API={API_URL} />} ></Route>
+        <Route exact path="/painel" element={<Painel API={API_URL} />}></Route>
+        <Route path="/newaccount" element={<NewAccount API={API_URL} />}> </Route> 
+        <Route path="/resetpass" element ={<ResetPass API={API_URL} />}></Route>
       </Routes>
     </Router>
   );

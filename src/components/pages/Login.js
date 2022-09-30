@@ -1,17 +1,28 @@
 import styles from './Login.module.css'
 import {useState, useEffect} from 'react'
+import Cookies from 'js-cookie'
 
 // Imagens
 import Ilustracao from '../util/img/IlustracaoMenu.png'
 import Integracao from '../util/img/LogoIntegração-Azul.png'
 import ErroLogin from '../layout/login/ErroLogin';
 import FormLogin from '../layout/login/FormLogin';
+import Load from '../layout/login/form/Load'
+
 // Imagens
 
-function Login(){
+function Login(props){
+
+    if(Cookies.get('key')){
+        window.location.href = "/painel"
+    }else{
+    }
+
+
     document.getElementsByTagName("title")[0].innerHTML ="Login | STOK";
     const [msgErro, setMsgErro] = useState('');
     const[erroForm,setErroForm] = useState("");
+    const [requestPost, setRequestPost] = useState(false);
 
     const[email, setEmail] = useState('');
     function Autenticacao(){
@@ -21,11 +32,32 @@ function Login(){
 
         if(email.value != ""){
             if(senha.value != ""){
-                if(email.value == "123" & senha.value == "123"){
-                    document.location.href = "/painel";
-                }else{
-                    setMsgErro("SENHA/LOGIN INCORRETOS");
-            }
+                setRequestPost(true);
+                let data = {
+                    'email':email.value,
+                    'senha':senha.value
+                };
+                fetch(props.API+"auth/key/criar/",{
+                    method:'POST',
+                    headers: {
+                        'Content-Type':'application/json'
+                    },
+                    body: JSON.stringify(data),
+                }).then((resp) => resp.json())
+                .then((data)=>{
+                   if(data.status){
+                    Cookies.set('key', data.key,{ expires: 1 });
+                    window.location.href =  "/painel";
+                   }else{
+                    setRequestPost(false);
+                    setMsgErro("EMAIL/SENHA INVALIDOS")
+                   }
+                })
+                .catch(()=>{
+                    setMsgErro("OCORREU UM ERRO INTERNO");
+                    setRequestPost(false);
+                });
+            
             }else{
                 senha.style.borderColor = "red";
                 senha.style.setProperty("--p", "red");
@@ -76,7 +108,13 @@ function Login(){
                             {msgErro ?(
                                 <ErroLogin reset={reset} mensagem={msgErro}/>
                             ):(
-                                <FormLogin change={emailState} Vemail = {email} erro={erroForm} action={Autenticacao}/>
+                                !requestPost ? (
+                                    <FormLogin change={emailState} Vemail = {email} erro={erroForm} action={Autenticacao}/>
+                                ):(
+                                 <Load/> 
+                                )
+
+                                
                             )}
                         </section>
                     {/* Area Form */}

@@ -1,8 +1,9 @@
 import Lbtn from './util/img/LogoutBtn.png'
 import styles from './Logout.module.css'
+import Cookies from 'js-cookie';
 function Logout(){
     function LogoutAction(){
-        console.log("Saiu");
+        Cookies.remove("key");
         window.location.href = "../"
     }
 

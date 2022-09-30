@@ -26,7 +26,8 @@ function FormRegistrar(){
                 erroSenha("AS SENHAS SÃO DIFERENTES",senha,senha2);
             }
         }else{
-            validacaoNULL(arrayInputs)
+            validacaoNULL(arrayInputs
+                )
         }
     }
 
