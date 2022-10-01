@@ -3,9 +3,9 @@ import styles from './FormRegistrar.module.css'
 import BtnLogin from "../login/BtnLogin"
 import InputForm from '../login/form/InputForm';
 
-import {Link} from 'react-router-dom'
+import {json, Link} from 'react-router-dom'
 import {useState} from 'react'
-function FormRegistrar(){
+function FormRegistrar(props){
     const [Erro, setErro] = useState("");
     function Registrar(e){
         e.preventDefault()
@@ -18,7 +18,22 @@ function FormRegistrar(){
         if(nome.value !="" && email.value !="" && senha.value !="" && senha2.value !="" ){
             if(senha.value == senha2.value){
                 if(senha.value.length >= 8){
-                    alert("Chegou")
+                    let data = {
+                        'email': email.value,
+                        'senha': senha.value,
+                        'nome': nome.value
+                    };
+                    fetch(props.API+"auth/registrar/",{
+                        method:'POST',
+                    headers: {
+                        'Content-Type':'application/json',
+                        'Access-Control-Allow-Origin': '*',
+                    },
+                    body: JSON.stringify(data),
+                    }).then((resp) => resp.json)
+                    .then((data)=>{
+                        console.log(JSON.stringify(data));
+                    })
                 }else{
                     erroSenha("SENHA TEM QUE TER NO MINIO 8 CARACTERES",senha,senha2)
                 }
