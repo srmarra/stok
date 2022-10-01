@@ -40,7 +40,8 @@ function Login(props){
                 fetch(props.API+"auth/key/criar/",{
                     method:'POST',
                     headers: {
-                        'Content-Type':'application/json'
+                        'Content-Type':'application/json',
+                        'Access-Control-Allow-Origin': '*',
                     },
                     body: JSON.stringify(data),
                 }).then((resp) => resp.json())

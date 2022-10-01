@@ -9,13 +9,7 @@ function Conteudo(){
         console.log("Abrir Gaveta");
     }   
     const[StokProd,setStokProd] = useState([]);
-    useEffect(()=>{
-        let request = new XMLHttpRequest();
-        request.open("GET", "http://localhost/StokAPI/produtos/", false)
-        request.send();
-        console.log(request.responseText)
-        setStokProd(JSON.parse(request.responseText))
-    }, []);
+    
 
     return(
         <section className={styles.conteudo}>

@@ -6,7 +6,7 @@ import Painel from './components/pages/Painel';
 import ResetPass from './components/pages/ResetPass';
 import {useState} from 'react'
 function App() {
-  const API_URL ="http://localhost/stok-api/";
+  const API_URL ="https://apistok.hmarra.tech/";
   return (
     <Router>
       <Routes>
