@@ -2,6 +2,8 @@ import styles from './Base.module.css'
 import Ilustracao from './img/RegisterIlustracao.png'
 import RegisterArea from './RegisterArea'
 function Base(){
+
+
     return(
         <section className={styles.Base}>
             <nav><img src={Ilustracao} alt="" /></nav>
