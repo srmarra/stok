@@ -5,6 +5,7 @@ import InputForm from '../login/form/InputForm';
 
 import {json, Link} from 'react-router-dom'
 import {useState} from 'react'
+import Cookies from 'js-cookie';
 function FormRegistrar(props){
     const [Erro, setErro] = useState("");
     function Registrar(e){
@@ -23,17 +24,24 @@ function FormRegistrar(props){
                         'senha': senha.value,
                         'nome': nome.value
                     };
+                    
                     fetch(props.API+"auth/registrar/",{
                         method:'POST',
-                    headers: {
-                        'Content-Type':'application/json',
-                        'Access-Control-Allow-Origin': '*',
-                    },
-                    body: JSON.stringify(data),
-                    }).then((resp) => resp.json)
+                        headers: {
+                            'Content-Type':'application/json',
+                            'Access-Control-Allow-Origin': '*',
+                        },
+                        body: JSON.stringify(data),
+                    }).then((resp) => resp.json())
                     .then((data)=>{
-                        console.log(JSON.stringify(data));
+                        if(data.status){
+                            Cookies.set('key', data.key,{expires: 1});
+                            window.location.href = "../painel";
+                        }
                     })
+                    .catch((er)=>{
+                        console.log(er)
+                    });
                 }else{
                     erroSenha("SENHA TEM QUE TER NO MINIO 8 CARACTERES",senha,senha2)
                 }
