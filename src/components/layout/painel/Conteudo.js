@@ -3,7 +3,7 @@ import Produtos from './Produtos';
 import btnPlus from './util/img/btnPlus.png'
 import {useState,useEffect} from 'react'
 
-function Conteudo(){
+function Conteudo(props){
 
     function add(){
         console.log("Abrir Gaveta");
@@ -15,7 +15,7 @@ function Conteudo(){
         <section className={styles.conteudo}>
             <nav>
                 <div><h1>STOK</h1></div>
-                <div onClick={add}><img src={btnPlus} alt="" /></div>
+                <div onClick={props.change}><img src={btnPlus} alt="" /></div>
             </nav>
             <nav>
                 {StokProd.map((prod)=>(

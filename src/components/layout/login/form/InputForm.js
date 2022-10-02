@@ -4,6 +4,8 @@ import styles from './InputForm.module.css'
 
 function InputForm({place,type,name,value,change}){
 
+    
+
     function Start(){
     }
     return(

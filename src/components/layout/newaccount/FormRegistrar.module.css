@@ -18,3 +18,17 @@
     margin-top: 45px;
     color: #3F416C;
 }
+
+.load{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 0 auto;
+    height: 40px;
+    width: 150px;
+    margin-top: 140px;
+}
+
+.load nav{
+    width: 40px;
+}

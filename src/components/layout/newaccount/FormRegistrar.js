@@ -6,8 +6,16 @@ import InputForm from '../login/form/InputForm';
 import {json, Link} from 'react-router-dom'
 import {useState} from 'react'
 import Cookies from 'js-cookie';
+import Load from '../login/form/Load';
 function FormRegistrar(props){
     const [Erro, setErro] = useState("");
+
+    const [Request, setRequest] = useState(false);  
+
+    const [Nome, setNome] = useState("");
+    const [Email, setEmail] = useState("");
+    const [Senha, setSenha] = useState("");
+
     function Registrar(e){
         e.preventDefault()
         let nome = document.getElementById("nome");
@@ -24,7 +32,7 @@ function FormRegistrar(props){
                         'senha': senha.value,
                         'nome': nome.value
                     };
-                    
+                    setRequest(true);
                     fetch(props.API+"auth/registrar/",{
                         method:'POST',
                         headers: {
@@ -37,10 +45,15 @@ function FormRegistrar(props){
                         if(data.status){
                             Cookies.set('key', data.key,{expires: 1});
                             window.location.href = "../painel";
+                        }else{
+                            setRequest(false);
+                            setErro("Esse email já foi registrado");
+
                         }
                     })
                     .catch((er)=>{
-                        console.log(er)
+                        setRequest(false);
+                        setErro("O sistema está fora do ar.");
                     });
                 }else{
                     erroSenha("SENHA TEM QUE TER NO MINIO 8 CARACTERES",senha,senha2)
@@ -69,6 +82,11 @@ function FormRegistrar(props){
         });
     }
 
+    function set_Nome(e){setNome(e.target.value);}
+    function set_Email(e){setEmail(e.target.value);}
+    function set_Senha(e){setSenha(e.target.value);}
+
+
 
     function erroSenha(erro,senha,senha2){
         setErro(erro);
@@ -87,15 +105,23 @@ function FormRegistrar(props){
     }
 
     return(
-        <form className={styles.FormRegistrar}>
-            <h3>{Erro}</h3>
-            <InputForm place="NOME" type="text" name="nome" id="nome"/>
-            <InputForm place="EMAIL" type="email" name="email" id="email"/>
-            <InputForm place="SENHA" type="password" name="senha" id="senha"/>
-            <InputForm place="REPETIR SENHA" type="password" name="senha2" id="senha2"/>
-            <BtnLogin text="REGISTRAR" action={Registrar}/>
-            <Link to={'/'}><p>FAZER <span>LOGIN</span></p></Link>
-        </form>
+        <>
+        {!Request ? (
+            <form className={styles.FormRegistrar}>
+                <h3>{Erro}</h3>
+                <InputForm change={set_Nome} place="NOME" type="text" name="nome" id="nome" value={Nome}/>
+                <InputForm change={set_Email} place="EMAIL" type="email" name="email" id="email" value={Email}/>
+                <InputForm change={set_Senha} place="SENHA" type="password" name="senha" id="senha" value={Senha}/>
+                <InputForm place="REPETIR SENHA" type="password" name="senha2" id="senha2"/>
+                <BtnLogin text="REGISTRAR" action={Registrar}/>
+                <Link to={'/'}><p>FAZER <span>LOGIN</span></p></Link>
+            </form>) : 
+                <div className={styles.load}>
+                <Load/>
+                </div>
+            }
+
+        </>
     )
 }
 export default FormRegistrar
