@@ -5,6 +5,7 @@ import styles from './Painel.module.css'
 
 import Cookies from 'js-cookie'
 import { useState } from 'react'
+import AddPainel from '../layout/painel/Actions/paineis/AddPainel'
 
 function Painel(){
     document.getElementsByTagName("title")[0].innerHTML ="Painel | STOK";
@@ -23,6 +24,9 @@ function Painel(){
         <LogoIntegracao/>
         <Conteudo change={AddAc}/>
         <Logout/>
+        {Add ? (
+        <AddPainel change={AddAc} />
+        ):(<></>)}
         </>
     )
 }
