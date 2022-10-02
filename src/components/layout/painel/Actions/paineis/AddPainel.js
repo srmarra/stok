@@ -1,10 +1,16 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import BtnLogin from '../../../login/BtnLogin';
 import InputForm from '../../../login/form/InputForm';
 import Load from '../../../login/form/Load';
 import styles from './AddPainel.module.css'
 
 function AddPainel(props){
+    document.onkeydown = function(e) {
+        if(e.key === 'Escape') {
+            {props.change()};
+        }
+      }
+
     const [Request, setRequest] = useState(false);
     const [Titulo, setTitulo] = useState("");
     const [Descricao, setDescricao] = useState("");
@@ -15,10 +21,38 @@ function AddPainel(props){
 
     function Adicionar(e){
         e.preventDefault();
+        let input = document.getElementsByTagName("input");
+        if(input[0].value != "" & input[1].value != "" & input[2].value != "" & input[3].value != "" ){
+            alert("Adicionou");
+        }else{
+            setErro("PREENCHA TODOS OS CAMPOS")
+            for(let i=0;i<input.length;i++){
+                if(input[i].value == ""){
+                    input[i].style.borderColor = "red";
+                    input[i].style.setProperty("--p", "red");
+                }
+            }
+
+            setTimeout(()=>{
+                setErro("")
+                for(let i=0;i<input.length;i++){
+                    input[i].style.borderColor = "white";
+                    input[i].style.setProperty("--p", "white");
+                }
+            }, 4000);
+
+        }
     }
 
     function ChangeT(e){setTitulo(e.target.value)}
+    function ChangeD(e){setDescricao(e.target.value)}
+    function ChangeP(e){setPreco(e.target.value)}
+    function ChangeQ(e){setQuantidade(e.target.value)}
 
+    useEffect(()=>{
+        
+        
+    }, []);
     return(
         <>
             <div className={styles.AddPainel} id="AddPainel">
@@ -29,10 +63,10 @@ function AddPainel(props){
                         <nav>
                             <form onSubmit={Adicionar}>
                                 <h1>{Erro}</h1>
-                                <InputForm change={Change} id="0" type="text" place="Titulo" value={Titulo}/>
-                                <InputForm change={Change} id="1" type="text" place="Descrião" value={Descricao}/>
-                                <InputForm change={Change} id="2" type="number" place="Preço" value={Preco}/>
-                                <InputForm change={Change} id="3" type="number" place="Quantidade" value={Quantidade}/>
+                                <InputForm change={ChangeT} type="text" place="Titulo" value={Titulo}/>
+                                <InputForm change={ChangeD} type="text" place="Descrição" value={Descricao}/>
+                                <InputForm change={ChangeP} type="number" place="Preço" value={Preco}/>
+                                <InputForm change={ChangeQ} type="number" place="Quantidade" value={Quantidade}/>
                                 <BtnLogin text="Adicionar produto"/>
                             </form>
                         </nav>

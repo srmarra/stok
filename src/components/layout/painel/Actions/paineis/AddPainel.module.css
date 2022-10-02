@@ -80,5 +80,5 @@
 }
 
 .form nav:first-of-type input::placeholder{
-    color: white;
+    color: var(--p, white);
 }
