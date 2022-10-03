@@ -7,7 +7,7 @@ import Cookies from 'js-cookie'
 import { useState } from 'react'
 import AddPainel from '../layout/painel/Actions/paineis/AddPainel'
 
-function Painel(){
+function Painel(props){
     document.getElementsByTagName("title")[0].innerHTML ="Painel | STOK";
 
     const [Add,setAdd] = useState(false);
@@ -25,7 +25,7 @@ function Painel(){
         <Conteudo change={AddAc}/>
         <Logout/>
         {Add ? (
-        <AddPainel change={AddAc} />
+        <AddPainel API={props.API} change={AddAc} />
         ):(<></>)}
         </>
     )

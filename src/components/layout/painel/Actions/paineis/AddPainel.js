@@ -23,7 +23,26 @@ function AddPainel(props){
         e.preventDefault();
         let input = document.getElementsByTagName("input");
         if(input[0].value != "" & input[1].value != "" & input[2].value != "" & input[3].value != "" ){
-            alert("Adicionou");
+            let obj = {
+                'titulo' : input[0].value,
+                'descricao' : input[1].value,
+                'preco':input[2].value,
+                'quantidade':input[3].value
+            }
+            fetch(props.API+"produtos/criar/",{
+                method:"POST",
+                headers: {
+                    'Content-Type':'application/json',
+                    'Access-Control-Allow-Origin': '*'
+                },body:JSON.stringify(obj)
+            }).then((resp)=>resp.json())
+            .then((data)=>{
+                console.log(data)
+            })
+            .catch(er=>{
+                console.log(er);
+            })
+
         }else{
             setErro("PREENCHA TODOS OS CAMPOS")
             for(let i=0;i<input.length;i++){
@@ -49,10 +68,7 @@ function AddPainel(props){
     function ChangeP(e){setPreco(e.target.value)}
     function ChangeQ(e){setQuantidade(e.target.value)}
 
-    useEffect(()=>{
-        
-        
-    }, []);
+    
     return(
         <>
             <div className={styles.AddPainel} id="AddPainel">
@@ -68,6 +84,7 @@ function AddPainel(props){
                                 <InputForm change={ChangeP} type="number" place="Preço" value={Preco}/>
                                 <InputForm change={ChangeQ} type="number" place="Quantidade" value={Quantidade}/>
                                 <BtnLogin text="Adicionar produto"/>
+                                <img src="" alt="" />
                             </form>
                         </nav>
                         ):(
