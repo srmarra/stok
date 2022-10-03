@@ -99,4 +99,4 @@ function AddPainel(props){
     )
 }
 
-export default AddPaine
+export default AddPainel
