@@ -22,7 +22,7 @@ function Painel(props){
     return(
         <>
         <LogoIntegracao/>
-        <Conteudo change={AddAc}/>
+        <Conteudo API={props.API} change={AddAc}/>
         <Logout/>
         {Add ? (
         <AddPainel API={props.API} change={AddAc} />

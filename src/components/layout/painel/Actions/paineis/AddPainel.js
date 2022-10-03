@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import BtnLogin from '../../../login/BtnLogin';
 import InputForm from '../../../login/form/InputForm';
 import Load from '../../../login/form/Load';
+import Produtos from '../../Produtos';
 import styles from './AddPainel.module.css'
 
 function AddPainel(props){
@@ -24,13 +25,15 @@ function AddPainel(props){
         e.preventDefault();
         let input = document.getElementsByTagName("input");
         if(input[0].value != "" & input[1].value != "" & input[2].value != "" & input[3].value != "" ){
-            let keyy = Cookies.get("key");
+            let key = Cookies.get("key");
+            console.log(key);
             let obj = {
+                'key': key,
                 'titulo' : input[0].value,
                 'descricao' : input[1].value,
                 'preco':input[2].value,
                 'quantidade':input[3].value,
-                'key': keyy
+                
             }
             fetch(props.API+"produtos/criar/",{
                 method:"POST",
@@ -40,7 +43,9 @@ function AddPainel(props){
                 },body:JSON.stringify(obj)
             }).then((resp)=>resp.json())
             .then((data)=>{
-                console.log(data)
+                let body = document.getElementById("Conteudos").innerHTML;
+                document.getElementById("Conteudos").innerHTML= body + `<div class="Produtos_Produtos__y8CEY"><section><h2>${input[0].value}</h2><h3>${input[1].value}</h3><h4>R$ ${input[2].value}</h4><h5>QNT: ${input[3].value}</h5></section><section><div class="Vender_Vender__CwWoG"><span></span></div><div class="Editar_Editar__K7Vgh"><span></span></div><div class="Deletar_Deletar__ucOXX"><span></span></div></section></div>`;
+                {props.change()};
             })
             .catch(er=>{
                 console.log(er);
