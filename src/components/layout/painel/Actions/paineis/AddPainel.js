@@ -1,3 +1,4 @@
+import Cookies from 'js-cookie';
 import { useEffect, useState } from 'react'
 import BtnLogin from '../../../login/BtnLogin';
 import InputForm from '../../../login/form/InputForm';
@@ -23,11 +24,13 @@ function AddPainel(props){
         e.preventDefault();
         let input = document.getElementsByTagName("input");
         if(input[0].value != "" & input[1].value != "" & input[2].value != "" & input[3].value != "" ){
+            let keyy = Cookies.get("key");
             let obj = {
                 'titulo' : input[0].value,
                 'descricao' : input[1].value,
                 'preco':input[2].value,
-                'quantidade':input[3].value
+                'quantidade':input[3].value,
+                'key': keyy
             }
             fetch(props.API+"produtos/criar/",{
                 method:"POST",
@@ -84,7 +87,6 @@ function AddPainel(props){
                                 <InputForm change={ChangeP} type="number" place="Preço" value={Preco}/>
                                 <InputForm change={ChangeQ} type="number" place="Quantidade" value={Quantidade}/>
                                 <BtnLogin text="Adicionar produto"/>
-                                <img src="" alt="" />
                             </form>
                         </nav>
                         ):(
@@ -97,4 +99,4 @@ function AddPainel(props){
     )
 }
 
-export default AddPainel
+export default AddPaine
