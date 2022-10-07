@@ -9,8 +9,8 @@
                 <section >
                     <h2>{titulo}</h2>
                     <h3>{desc}</h3>
-                    <h4>R$ {preco}</h4>
-                    <h5>QNT: {qnt}</h5>
+                    <h4 id={`P${id}`}>R$ {preco}</h4>
+                    <h5 id={`Q${id}`} >QNT: {qnt}</h5>
                 </section>
                 <section>
                     <Vender id={id} Vend={Vend}/>

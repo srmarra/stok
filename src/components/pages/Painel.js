@@ -82,12 +82,13 @@ function Painel(props){
         })
     }
 
-    function Vender(){
+    function Vender(id){
         const url = props.API+"produtos/vender/";
-        console.log(id_Del);
+        console.log(id);
         
         const env = {
             'key': Cookies.get('key'),
+            'id': id
         }
 
         fetch(url,{
@@ -98,6 +99,7 @@ function Painel(props){
             },body:JSON.stringify(env)
         }).then((resp) => resp.json())
         .then((data)=>{
+            document.getElementById("Q"+id).innerText = "QNT: "+data.qnt;
             console.log(data);
         }).catch((er)=>{
             console.log(er);

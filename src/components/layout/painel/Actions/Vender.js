@@ -2,11 +2,11 @@ import styles from './Vender.module.css'
 
 function Vender(props){
     function Venda(){
-        {props.Vend}
+        {props.Vend(props.id)}
     }
 
     return(
-        <div  onClick={Venda()}  className={styles.Vender}><span></span></div>
+        <div  onClick={Venda}  className={styles.Vender}><span></span></div>
 
     )
 }
