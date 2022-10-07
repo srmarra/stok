@@ -82,6 +82,28 @@ function Painel(props){
         })
     }
 
+    function Vender(){
+        const url = props.API+"produtos/vender/";
+        console.log(id_Del);
+        
+        const env = {
+            'key': Cookies.get('key'),
+        }
+
+        fetch(url,{
+            method:"POST",
+            headers:{
+                'Content-Type':'application/json',
+                'Access-Control-Allow-Origin': '*'
+            },body:JSON.stringify(env)
+        }).then((resp) => resp.json())
+        .then((data)=>{
+            console.log(data);
+        }).catch((er)=>{
+            console.log(er);
+        })
+    }
+
 
     if(!Cookies.get('key')){
         window.location.href = "../"
@@ -91,7 +113,7 @@ function Painel(props){
     return(
         <>
         <LogoIntegracao/>
-        <Conteudo  array={StokProd} API={props.API} change={AddAc} Del ={DellAc} />
+        <Conteudo  array={StokProd} API={props.API} change={AddAc} Del ={DellAc} Vend={Vender} />
         <Logout/>
         {Add ? (
         <AddPainel action={Actualiza} API={props.API} change={AddAc} />

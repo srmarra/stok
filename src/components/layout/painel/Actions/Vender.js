@@ -1,8 +1,12 @@
 import styles from './Vender.module.css'
 
-function Vender(){
+function Vender(props){
+    function Venda(){
+        {props.Vend}
+    }
+
     return(
-        <div className ={styles.Vender}><span></span></div>
+        <div  onClick={Venda()}  className={styles.Vender}><span></span></div>
 
     )
 }

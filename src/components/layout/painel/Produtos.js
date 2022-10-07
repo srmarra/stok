@@ -3,7 +3,7 @@
     import Vender from './Actions/Vender'
     import styles from './Produtos.module.css'
 
-    function Produtos({titulo,desc,preco,qnt,id,Del}){
+    function Produtos({titulo,desc,preco,qnt,id,Del,Vend}){
         return(
             <div className={styles.Produtos}>
                 <section >
@@ -13,7 +13,7 @@
                     <h5>QNT: {qnt}</h5>
                 </section>
                 <section>
-                    <Vender/>
+                    <Vender id={id} Vend={Vend}/>
                     <Editar/>
                     <Deletar id={id} Del={Del}/>
                 </section>

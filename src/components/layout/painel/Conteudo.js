@@ -22,7 +22,7 @@ function Conteudo(props){
             <nav id='Conteudos'>
                 
                 {props.array.map((prod)=>(
-                    <Produtos Del={props.Del} key={prod.id} id={prod.id} titulo={prod.titulo} desc={prod.desc} preco={prod.preco} qnt={prod.qnt}/>
+                    <Produtos Vend={props.Vend} Del={props.Del} key={prod.id} id={prod.id} titulo={prod.titulo} desc={prod.desc} preco={prod.preco} qnt={prod.qnt}/>
                 ))}
 
 
