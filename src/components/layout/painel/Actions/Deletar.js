@@ -1,9 +1,14 @@
 
 import styles from './Deletar.module.css'
 
-function Deletar(){
+function Deletar(props){
+    function del(){
+        {props.Del(props.id)}
+    }
+    
     return(
-        <div className={styles.Deletar} ><span></span></div>
+        
+        <div onClick={del} className={styles.Deletar} ><span></span></div>
         
     )
 }

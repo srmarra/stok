@@ -6,6 +6,7 @@ import styles from './Painel.module.css'
 import Cookies from 'js-cookie'
 import { useState , useEffect} from 'react'
 import AddPainel from '../layout/painel/Actions/paineis/AddPainel'
+import DelPainel from '../layout/painel/Actions/paineis/DelPainel'
 
 function Painel(props){
     document.getElementsByTagName("title")[0].innerHTML ="Painel | STOK";
@@ -26,6 +27,10 @@ function Painel(props){
         })
         .then((resp)=> resp.json())
         .then((data)=>{
+            if(data.status == false){
+                Cookies.remove('key');
+                window.location.href = "../";
+            }
             setStokProd(data);
         })
         .catch(er=>{
@@ -42,6 +47,42 @@ function Painel(props){
     function AddAc(){
         setAdd(!Add);
     }
+    const [Dell,setDel] = useState(false);
+    const [id_Del,setid_Del] = useState(-1);
+    function DellAc(id){
+        setDel(!Dell);
+        setid_Del(id);
+        console.log(id_Del);
+    }
+    function Deletar(id){
+        const url = props.API+"produtos/deletar/";
+        console.log(id_Del);
+        
+        const env = {
+            'key': Cookies.get('key'),
+            'id': id_Del
+        }
+
+        fetch(url,{
+            method:"POST",
+            headers:{
+                'Content-Type':'application/json',
+                'Access-Control-Allow-Origin': '*'
+            },body:JSON.stringify(env)
+        }).then((resp) => resp.json())
+        .then((data)=>{
+            Actualiza();
+            if(data.status == false){
+                Cookies.remove('key');
+                window.location.href = "../";
+            }
+            setDel(!Dell);
+        }).catch((er)=>{
+            console.log(er);
+        })
+    }
+
+
     if(!Cookies.get('key')){
         window.location.href = "../"
     }else{
@@ -50,12 +91,19 @@ function Painel(props){
     return(
         <>
         <LogoIntegracao/>
-        <Conteudo  array={StokProd} API={props.API} change={AddAc}/>
+        <Conteudo  array={StokProd} API={props.API} change={AddAc} Del ={DellAc} />
         <Logout/>
         {Add ? (
         <AddPainel action={Actualiza} API={props.API} change={AddAc} />
         ):(<></>)}
         
+        {Dell ? (
+            <DelPainel DelAct={Deletar} change={DellAc} />
+        ):(
+            <></>
+        )
+            
+        }
         </>
     )
 }
