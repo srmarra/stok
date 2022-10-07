@@ -4,12 +4,40 @@ import Logout from '../layout/painel/Logout'
 import styles from './Painel.module.css'
 
 import Cookies from 'js-cookie'
-import { useState } from 'react'
+import { useState , useEffect} from 'react'
 import AddPainel from '../layout/painel/Actions/paineis/AddPainel'
 
 function Painel(props){
     document.getElementsByTagName("title")[0].innerHTML ="Painel | STOK";
+    const[StokProd,setStokProd] = useState([]);
 
+    function Actualiza(){
+        let key = Cookies.get("key");
+        let obj = {
+            'key': key,
+        }
+
+        fetch(props.API+"produtos/",{
+            method:"POST",
+            headers: {
+                'Content-Type':'application/json',
+                'Access-Control-Allow-Origin': '*'
+            },body:JSON.stringify(obj)
+        })
+        .then((resp)=> resp.json())
+        .then((data)=>{
+            setStokProd(data);
+        })
+        .catch(er=>{
+            console.log(er);
+        })
+    }
+
+    useEffect(()=>{
+        Actualiza();
+    },[]);
+
+ 
     const [Add,setAdd] = useState(false);
     function AddAc(){
         setAdd(!Add);
@@ -22,11 +50,12 @@ function Painel(props){
     return(
         <>
         <LogoIntegracao/>
-        <Conteudo API={props.API} change={AddAc}/>
+        <Conteudo  array={StokProd} API={props.API} change={AddAc}/>
         <Logout/>
         {Add ? (
-        <AddPainel API={props.API} change={AddAc} />
+        <AddPainel action={Actualiza} API={props.API} change={AddAc} />
         ):(<></>)}
+        
         </>
     )
 }

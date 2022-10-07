@@ -33,7 +33,6 @@ function AddPainel(props){
                 'descricao' : input[1].value,
                 'preco':input[2].value,
                 'quantidade':input[3].value,
-                
             }
             fetch(props.API+"produtos/criar/",{
                 method:"POST",
@@ -44,8 +43,16 @@ function AddPainel(props){
             }).then((resp)=>resp.json())
             .then((data)=>{
                 let body = document.getElementById("Conteudos").innerHTML;
-                document.getElementById("Conteudos").innerHTML= body + `<div class="Produtos_Produtos__y8CEY"><section><h2>${input[0].value}</h2><h3>${input[1].value}</h3><h4>R$ ${input[2].value}</h4><h5>QNT: ${input[3].value}</h5></section><section><div class="Vender_Vender__CwWoG"><span></span></div><div class="Editar_Editar__K7Vgh"><span></span></div><div class="Deletar_Deletar__ucOXX"><span></span></div></section></div>`;
+                // document.getElementById("Conteudos").innerHTML= body + `<div class="Produtos_Produtos__y8CEY"><section><h2>${input[0].value}</h2><h3>${input[1].value}</h3><h4>R$ ${input[2].value}</h4><h5>QNT: ${input[3].value}</h5></section><section><div class="Vender_Vender__CwWoG"><span></span></div><div class="Editar_Editar__K7Vgh"><span></span></div><div class="Deletar_Deletar__ucOXX"><span></span></div></section></div>`;
                 {props.change()};
+                let obj2 = {
+                    'key': key,
+                    'titulo' : input[0].value,
+                    'desc' : input[1].value,
+                    'preco':input[2].value,
+                    'qnt':input[3].value,
+                }
+                {props.action()};
             })
             .catch(er=>{
                 console.log(er);
