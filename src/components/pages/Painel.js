@@ -7,6 +7,7 @@ import Cookies from 'js-cookie'
 import { useState , useEffect} from 'react'
 import AddPainel from '../layout/painel/Actions/paineis/AddPainel'
 import DelPainel from '../layout/painel/Actions/paineis/DelPainel'
+import EditarPainel from '../layout/painel/Actions/paineis/EditarPainel'
 
 function Painel(props){
     document.getElementsByTagName("title")[0].innerHTML ="Painel | STOK";
@@ -117,8 +118,12 @@ function Painel(props){
         <LogoIntegracao/>
         <Conteudo  array={StokProd} API={props.API} change={AddAc} Del ={DellAc} Vend={Vender} />
         <Logout/>
+
+        <EditarPainel/>
+
         {Add ? (
         <AddPainel action={Actualiza} API={props.API} change={AddAc} />
+        
         ):(<></>)}
         
         {Dell ? (
