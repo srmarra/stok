@@ -48,6 +48,30 @@ function Painel(props){
     function AddAc(){
         setAdd(!Add);
     }
+
+    const [Edit,setEdit] = useState(false);
+    const [id_Edit,setid_Edit] = useState(-1);
+
+    const [TituloEdit,setTituloEdit] = useState("");function ETstate(e){setTituloEdit(e.target.value)}
+    const [DescEdit,setDescEdit] = useState("");function EDstate(e){setDescEdit(e.target.value)}
+    const [PrecoEdit,setPrecoEdit] = useState("");function EPstate(e){setPrecoEdit(e.target.value)}
+    const [QntEdit,setQntEdit] = useState("");function EQstate(e){setQntEdit(e.target.value)}
+
+    function EditAc(id){
+        console.log(id);
+        if(id != -1){
+            setid_Edit(id);
+            setTituloEdit(document.getElementById("T"+id).innerHTML);
+            setDescEdit(document.getElementById("D"+id).innerHTML);
+            setPrecoEdit(document.getElementById("P"+id).innerHTML);
+            setQntEdit(document.getElementById("Q"+id).innerHTML);
+            
+
+        }
+        setEdit(!Edit);
+    }
+
+
     const [Dell,setDel] = useState(false);
     const [id_Del,setid_Del] = useState(-1);
     function DellAc(id){
@@ -55,6 +79,10 @@ function Painel(props){
         setid_Del(id);
         console.log(id_Del);
     }
+
+
+
+
     function Deletar(id){
         const url = props.API+"produtos/deletar/";
         console.log(id_Del);
@@ -100,7 +128,7 @@ function Painel(props){
             },body:JSON.stringify(env)
         }).then((resp) => resp.json())
         .then((data)=>{
-            document.getElementById("Q"+id).innerText = "QNT: "+data.qnt;
+            document.getElementById("Q"+id).innerText =data.qnt;
             console.log(data);
         }).catch((er)=>{
             console.log(er);
@@ -111,26 +139,27 @@ function Painel(props){
     if(!Cookies.get('key')){
         window.location.href = "../"
     }else{
-        console.log(!Cookies.get('key'));
     }
     return(
         <>
         <LogoIntegracao/>
-        <Conteudo  array={StokProd} API={props.API} change={AddAc} Del ={DellAc} Vend={Vender} />
+         <Conteudo  array={StokProd} API={props.API} change={AddAc} Del ={DellAc} Vend={Vender} Edit={EditAc} />
         <Logout/>
 
-        <EditarPainel/>
+
+    {/* Paineis de ação */}
+        {Edit ? (
+            <EditarPainel Qnt={QntEdit}Qchange={EQstate} Preco={PrecoEdit}Pchange={EPstate} id={id_Edit} Desc={DescEdit}Dchange={EDstate}  Titulo={TituloEdit}Tchange={ETstate} Edit={EditAc} /> 
+        ):(<></>)}
 
         {Add ? (
         <AddPainel action={Actualiza} API={props.API} change={AddAc} />
-        
         ):(<></>)}
         
+
         {Dell ? (
             <DelPainel DelAct={Deletar} change={DellAc} />
-        ):(
-            <></>
-        )
+        ):(<></>)
             
         }
         </>

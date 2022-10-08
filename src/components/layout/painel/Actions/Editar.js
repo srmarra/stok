@@ -1,8 +1,12 @@
 import styles from './Editar.module.css'
 
-function Editar(){
+function Editar(props){
+    function Edit(){
+        {props.Edit(props.id)}
+    }
+
     return(
-        <div className={styles.Editar}><span></span></div>
+        <div onClick={Edit} className={styles.Editar}><span></span></div>
     )
 }
 

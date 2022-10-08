@@ -10,28 +10,55 @@
 }
 
 .EditPainel section{
-    width: 480px;
+    width: clamp(200px,95%,400px);
     height: 300px;
     background-color: rgba(27,28,46,1);
 }
 
-.EditPainel section input{
+.EditPainel section nav:first-of-type{
+    height: 46px;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+
+.EditPainel section nav div{
+    background-color: rgba(255, 0, 0, 0.451);
+    width: 35px;
+    height: 35px;
+    margin-right: 10px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.EditPainel section nav div span{
+    width: 30%;
+    height: 30%;
+    background-color: red;
+    border-radius: 100px;
+}
+
+
+.EditPainel section nav:last-of-type input{
     color: white;
     border-color: white;
     margin: 20px auto 0 auto;
 
 }
 
-.EditPainel section input:first-of-type{
-    margin-top: 40px;
+.EditPainel section nav:last-of-type input:first-of-type{
+    margin-top: 5px;
 }
 
-.EditPainel section input:last-of-type{
+.EditPainel section nav:last-of-type input:last-of-type{
     margin-bottom: 10px;
 }
 
 
-.EditPainel section button{
+.EditPainel section nav:last-of-type button{
     display: block;
     margin: 20px auto 0 auto;
 }
