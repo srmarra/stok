@@ -52,10 +52,36 @@ function Painel(props){
     const [Edit,setEdit] = useState(false);
     const [id_Edit,setid_Edit] = useState(-1);
 
+    function Editar(id){
+        let Ed ={
+            "id": id,
+            "titulo":TituloEdit,
+            "descricao": DescEdit,
+            "preco":PrecoEdit,
+            "quantidade":QntEdit
+        }
+
+        fetch(props.API+"produtos/editar/",{
+            method:"POST",
+            headers:{
+                'Content-Type':'application/json',
+                'Access-Control-Allow-Origin': '*'
+            },body:JSON.stringify(Ed)
+        })
+        .then((resp)=>resp.json())
+        .then((data)=>{
+            Actualiza();
+            setEdit(false);
+        }).catch((er)=>{
+            console.log(er);
+        })
+    }
+
     const [TituloEdit,setTituloEdit] = useState("");function ETstate(e){setTituloEdit(e.target.value)}
     const [DescEdit,setDescEdit] = useState("");function EDstate(e){setDescEdit(e.target.value)}
     const [PrecoEdit,setPrecoEdit] = useState("");function EPstate(e){setPrecoEdit(e.target.value)}
     const [QntEdit,setQntEdit] = useState("");function EQstate(e){setQntEdit(e.target.value)}
+
 
     function EditAc(id){
         console.log(id);
@@ -149,7 +175,7 @@ function Painel(props){
 
     {/* Paineis de ação */}
         {Edit ? (
-            <EditarPainel Qnt={QntEdit}Qchange={EQstate} Preco={PrecoEdit}Pchange={EPstate} id={id_Edit} Desc={DescEdit}Dchange={EDstate}  Titulo={TituloEdit}Tchange={ETstate} Edit={EditAc} /> 
+            <EditarPainel Edita={Editar} Qnt={QntEdit}Qchange={EQstate} Preco={PrecoEdit}Pchange={EPstate} id={id_Edit} Desc={DescEdit}Dchange={EDstate}  Titulo={TituloEdit}Tchange={ETstate} Edit={EditAc} /> 
         ):(<></>)}
 
         {Add ? (
