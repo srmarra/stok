@@ -5,6 +5,7 @@ import InputForm from '../login/form/InputForm';
 
 import {Link} from 'react-router-dom'
 import {useState} from 'react'
+import Form1 from './forms/Form1';
 
 function AreaReset(){
 
@@ -35,17 +36,26 @@ function AreaReset(){
         }, 4000)
     }
 
+
+    function render(){
+
+        switch(status){
+            case 0:
+                return(<Form1 erro={erroForm} resetar={resetar}/>)
+             break;
+        }
+    }
+
+    const [status,setStatus] = useState(0);
     return(
         <>
             <h3 className={styles.AreaResetTitulo} >RESETAR SENHA</h3>
             <div className={styles.AreaReset}>
                 <img src={Integra} alt="" />
-                <form action="">
-                    <h4>{erroForm}</h4>
-                    <InputForm name="email" type="email" place="EMAIL" />
-                    <BtnLogin action={resetar} text="RESETAR"/>
-                    <Link to='/'><p>FAZER <span>LOGIN</span></p></Link> 
-                </form>
+
+                {render()}
+                
+                
             </div>
         </>
 
