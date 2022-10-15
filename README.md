@@ -25,4 +25,5 @@ A arquitetura utilizada nesse projeto é ***microservices***
 
 - Baixe os arquivos
 - Instale as dependencias do react
-- 
+- Rode a API em um hambiente php
+- no react vá no arquivo app.js e altere a variavel API_URL e coloque o link da api exemplo https://dominio.com/
