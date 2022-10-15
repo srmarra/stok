@@ -30,5 +30,5 @@ A arquitetura utilizada nesse projeto é ***microservices***
 - Crie um banco de dados SQL com sua preferencia.
 - No servidor do banco de dados insira o código SQL localizado na pasta raiz dos arquivos da API.
 - Nos arquivos da API vá até util/pdo_connect.php e altere as configurações de conexão do banco de dados.
-- se não funcionar refaça os paços.
+- se não funcionar refaça os passos.
 
