@@ -1,10 +1,10 @@
 import BaseReset from '../layout/reset/BaseReset';
 import styles from './ResetPass.module.css'
-function ResetPass(){
+function ResetPass(props){
     document.getElementsByTagName("title")[0].innerHTML ="Resetar | STOK";
 
     return(
-        <BaseReset/>
+        <BaseReset API={props.API}/>
     )
 }
 

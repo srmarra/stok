@@ -2,14 +2,14 @@ import AreaReset from './AreaReset';
 import styles from './BaseReset.module.css';
 
 import  Ilustra  from "./img/IlustraReset.png";
-function BaseReset(){
+function BaseReset(props){
     return(
         <section className={styles.BaseReset}>
             <nav>
                 <img src={Ilustra} alt="" />
             </nav>
             <nav>
-                <AreaReset/>
+                <AreaReset API={props.API}/>
             </nav>
         </section>
     )
