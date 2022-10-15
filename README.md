@@ -26,4 +26,6 @@ A arquitetura utilizada nesse projeto é ***microservices***
 - Baixe os arquivos
 - Instale as dependencias do react
 - Rode a API em um hambiente php
-- no react vá no arquivo app.js e altere a variavel API_URL e coloque o link da api exemplo https://dominio.com/
+- No REACT vá no arquivo app.js e altere a variavel API_URL para o link da api exemplo "https://dominio.com/".
+- Nos arquivos da api vá até util/pdo_connect.php e altere as configurações do banco de dados.
+- No servidor do banco de dados insira o código SQL
