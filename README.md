@@ -18,3 +18,11 @@ A arquitetura utilizada nesse projeto é ***microservices***
 - MODELAGEM BANCO DE DADOS [FIGMA](https://www.figma.com/file/ltQUIdU3vG8SVFmeVtHs4T/STOK-Banco-de-dados)
 - LINK FRONT HOSPEDADO [HEROKU](https://stokmarra.herokuapp.com/)
 - LINK API HOSPEDADA [HEROKU](https://stok-api-srmarra.herokuapp.com/)
+
+
+
+# COMO INSTALAR
+
+- Baixe os arquivos
+- Instale as dependencias do react
+- 
