@@ -33,13 +33,17 @@ function Form2(props){
         })
     }
 
-
+    function voltar(){
+        {props.setMsg("DIGITE O EMAIL VINCULADO A SUA CONTA")}
+        Cookies.remove("KeyReset");
+        {props.setSt(0)}
+    }
     return(
         <form onSubmit={codeReset} action="">
             <h4>{props.erro}</h4>
             <InputForm name="code" type="number" place="CÓDIGO" />
             <BtnLogin action={props.resetar} text="RESETAR"/>
-            <Link to='/'><p>FAZER <span>LOGIN</span></p></Link> 
+            <p onClick={voltar}>TENTAR <span>NOVAMENTE</span></p>
         </form>
     )
 }

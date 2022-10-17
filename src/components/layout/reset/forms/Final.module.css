@@ -1,0 +1,25 @@
+.Final{
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    height: 300px;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+}
+.Final p{
+    width: 200px;
+    height: 30px;
+    margin: 0;
+}
+
+.Final button{
+    margin: 0;
+    display: block;
+    width: 200px;
+    padding: 4px 3px;
+    border: none;
+    background-color: #3F416C;
+    color: white;
+}

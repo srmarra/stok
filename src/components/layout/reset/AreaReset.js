@@ -9,6 +9,7 @@ import Form1 from './forms/Form1';
 import Form2 from './forms/Form2';
 import Cookies from 'js-cookie';
 import Form3 from './forms/Form3';
+import Final from './forms/Final';
 
 function AreaReset(props){
 
@@ -52,11 +53,12 @@ function AreaReset(props){
     }
 
     function erro(error, email){
+        let msg = erroForm;
         email.style.borderColor = "red";
         email.style.setProperty("--p", "red");
         setErroForm(error);
         setTimeout(function(){
-            setErroForm("DIGITE O EMAIL VINCULADO A SUA CONTA");
+            setErroForm(msg);
             email.style.borderColor = "rgb(39, 39, 39)";
             email.style.setProperty("--p", "rgb(123, 123, 123)");
         }, 4000)
@@ -70,13 +72,13 @@ function AreaReset(props){
                 return(<Form1 erro={erroForm} resetar={resetar}/>)
              break;
             case 1:
-                return(<Form2 setSt={setSt} API ={props.API} setErro={erro} erro={erroForm}  />)
+                return(<Form2 setSt={setSt} API ={props.API} setErro={erro} setMsg={setErro} erro={erroForm}  />)
             break;
             case 2:
                 return(<Form3 setSt={setSt} API ={props.API} setErro={erro} erro={erroForm}  />)
             break;
             case 3:
-                return(<p>SENHA ALTERADA</p>)
+                return(<Final/>)
             break;
         }
     }
