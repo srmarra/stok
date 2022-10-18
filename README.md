@@ -18,3 +18,17 @@ A arquitetura utilizada nesse projeto é ***microservices***
 - MODELAGEM BANCO DE DADOS [FIGMA](https://www.figma.com/file/ltQUIdU3vG8SVFmeVtHs4T/STOK-Banco-de-dados)
 - LINK FRONT HOSPEDADO [HEROKU](https://stokmarra.herokuapp.com/)
 - LINK API HOSPEDADA [HEROKU](https://stok-api-srmarra.herokuapp.com/)
+
+
+
+# COMO INSTALAR
+
+- Baixe os arquivos
+- Instale as dependencias do react
+- Rode a API em um ambiente php
+- No REACT vá no arquivo app.js e altere a variavel API_URL para o link da api exemplo "https://dominio.com/".
+- Crie um banco de dados SQL com sua preferencia.
+- No servidor do banco de dados insira o código SQL localizado na pasta raiz dos arquivos da API.
+- Nos arquivos da API vá até util/pdo_connect.php e altere as configurações de conexão do banco de dados.
+- se não funcionar refaça os passos.
+
