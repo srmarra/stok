@@ -27,8 +27,13 @@ A arquitetura utilizada nesse projeto é ***microservices***
 - Instale as dependencias do react
 - Rode a API em um ambiente php
 - No REACT vá no arquivo app.js e altere a variavel API_URL para o link da api exemplo "https://dominio.com/".
+   - Caso quiser usar o da minha hospedagem pode deixar como "https://apistok.hmarra.tech/" que irá rodar normalmente
 - Crie um banco de dados SQL com sua preferencia.
 - No servidor do banco de dados insira o código SQL localizado na pasta raiz dos arquivos da API.
 - Nos arquivos da API vá até util/pdo_connect.php e altere as configurações de conexão do banco de dados.
-- se não funcionar refaça os passos.
+- Erros comuns.
+  - Credenciais do banco de dados incorreto
+  - Suporte da hospedagem
+  - Erro na instaação de dependencias do react
+- Se mesmo assim não conseguir rodar, pode entrar em contato comigo no linkedin [AQUI](https://www.linkedin.com/in/herick-da-costa-marra-2370681b9/)
 
