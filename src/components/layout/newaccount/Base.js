@@ -8,8 +8,7 @@ function Base(props){
         <section className={styles.Base}>
             <nav><img src={Ilustracao} alt="" /></nav>
             <nav>
-                <h1>CRIAR CONTA NA STOK</h1>
-                <RegisterArea API = {props.API}/>
+                    <RegisterArea API = {props.API}/>
             </nav>
         </section>
     )

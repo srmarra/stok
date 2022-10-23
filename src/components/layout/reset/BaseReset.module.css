@@ -22,7 +22,9 @@
 
 .BaseReset nav:last-of-type{
     width: 55%;
-
+    display: flex;
+    align-items: center;
+    justify-items: center;
 }
 
 @media(max-width: 757px){

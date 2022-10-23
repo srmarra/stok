@@ -86,12 +86,10 @@ function AreaReset(props){
     const [status,setStatus] = useState(0);function setSt(st){setStatus(st)}
     return(
         <>
-            <h3 className={styles.AreaResetTitulo} >RESETAR SENHA</h3>
             <div className={styles.AreaReset}>
                 <img src={Integra} alt="" />
 
                 {render()}
-                
                 
             </div>
         </>

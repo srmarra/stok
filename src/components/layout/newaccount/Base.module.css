@@ -2,7 +2,8 @@
     width: 100%;
     height: 100vh;
     display: flex;
-    
+    margin: 0;
+    padding: 0;
 }
 
 .Base nav{
@@ -24,11 +25,22 @@
 
 .Base nav:last-of-type{
     width: 55%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.Base nav:last-of-type section{
+    width: 100%;
+    height: 100%;
+display: flex;
+flex-wrap: wrap;
+align-items: center;
+justify-items: center;
 }
 .Base nav:last-of-type h1{
     width: 100%;
     text-align: center;
-    margin: 90px 0 15px 0;
     color: white;
     font-weight: 100;
     font-size: 28px;
